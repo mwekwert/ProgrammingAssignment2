@@ -1,15 +1,22 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Create an inverse of a matrix, and cache it for later use. 
 
-## Write a short comment describing this function
+## Create a matrix with the inverse of the input matrix.  Store both matrices
+## in a cache object
 
 makeCacheMatrix <- function(x = matrix()) {
-
+        inv_orig <- solve(x)
+        cache <<- list(x, inv_orig)
+        names(cache) <- c("original", "inverse")
 }
 
 
-## Write a short comment describing this function
+## Check the cache to see if the matrix is cached. if it is, return the cached
+## result.  if not run calculate the inverse and cache the result
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        if (identical(x, cache$original) == TRUE) {
+                cache$inverse
+        } else {
+                makeCacheMatrix(x)
+        }
 }
