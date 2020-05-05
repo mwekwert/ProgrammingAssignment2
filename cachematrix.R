@@ -6,7 +6,7 @@
 makeCacheMatrix <- function(x = matrix()) {
         inv_orig <- solve(x)
         cache <<- list(x, inv_orig)
-        names(cache) <- c("original", "inverse")
+        names(cache) <<- c("original", "inverse")
 }
 
 
